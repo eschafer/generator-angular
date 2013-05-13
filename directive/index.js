@@ -20,7 +20,7 @@ Generator.prototype.createDirectiveFiles = function createDirectiveFiles() {
 };
 
 Generator.prototype.customize = function customize(){
-  this.write('app/scripts/directives/' + this.name + '.js', this.engine(this.read('../../../../app/scripts/directives/' + this.name + '.js')).replace(/  /g, '\t'));
-  this.write('test/spec/directives/' + this.name + '.js', this.engine(this.read('../../../../test/spec/directives/' + this.name + '.js')).replace(/  /g, '\t'));
+  this.write('app/scripts/directives/' + this.name + '.js', this.engine(this.read('../../../../app/scripts/directives/' + this.name + '.js')).replace(/  /g, '\t').replace(/'/g, '"'));
+  this.write('test/spec/directives/' + this.name + '.js', this.engine(this.read('../../../../test/spec/directives/' + this.name + '.js')).replace(/  /g, '\t').replace(/'/g, '"'));
   this.write('app/index.html', this.engine(this.read('../../../../app/index.html')).replace(/\n<script src="scripts\/directives\//g, '\n\t\t<script src="scripts/directives/'));
 };

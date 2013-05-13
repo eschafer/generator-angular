@@ -18,5 +18,5 @@ Generator.prototype.createAppFile = function createAppFile() {
 };
 
 Generator.prototype.customize = function customize(){
-  this.write('app/scripts/app.js', this.engine(this.read('../../../../app/scripts/app.js')).replace(/  /g, '\t'));
+  this.write('app/scripts/app.js', this.engine(this.read('../../../../app/scripts/app.js')).replace(/  /g, '\t').replace(/'/g, '"'));
 };

@@ -39,7 +39,7 @@ Generator.prototype.createServiceFiles = function createServiceFiles() {
 };
 
 Generator.prototype.customize = function customize(){
-  this.write('app/scripts/services/' + this.name + '.js', this.engine(this.read('../../../../app/scripts/services/' + this.name + '.js')).replace(/  /g, '\t'));
-  this.write('test/spec/services/' + this.name + '.js', this.engine(this.read('../../../../test/spec/services/' + this.name + '.js')).replace(/  /g, '\t'));
+  this.write('app/scripts/services/' + this.name + '.js', this.engine(this.read('../../../../app/scripts/services/' + this.name + '.js')).replace(/  /g, '\t').replace(/'/g, '"'));
+  this.write('test/spec/services/' + this.name + '.js', this.engine(this.read('../../../../test/spec/services/' + this.name + '.js')).replace(/  /g, '\t').replace(/'/g, '"'));
   this.write('app/index.html', this.engine(this.read('../../../../app/index.html')).replace(/\n<script src="scripts\/services\//g, '\n\t\t<script src="scripts/services/'));
 };
