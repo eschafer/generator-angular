@@ -18,3 +18,9 @@ Generator.prototype.createFilterFiles = function createFilterFiles() {
   this.testTemplate('spec/filter', 'filters/' + this.name);
   this.addScriptToIndex('filters/' + this.name);
 };
+
+Generator.prototype.customize = function customize(){
+  this.write('app/scripts/filters/' + this.name + '.js', this.engine(this.read('../../../../app/scripts/filters/' + this.name + '.js')).replace(/  /g, '\t'));
+  this.write('test/spec/filters/' + this.name + '.js', this.engine(this.read('../../../../test/spec/filters/' + this.name + '.js')).replace(/  /g, '\t'));
+  this.write('app/index.html', this.engine(this.read('../../../../app/index.html')).replace(/\n<script src="scripts\/filters\//g, '\n\t\t<script src="scripts/filters/'));
+};

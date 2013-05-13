@@ -31,10 +31,10 @@ Generator.prototype.rewriteAppJs = function () {
       file: path.join(this.env.options.appPath, 'scripts/app.js'),
       needle: '.otherwise',
       splicable: [
-        '.when(\'/' + this.name + '\', {',
-        '  templateUrl: \'views/' + this.name + '.html\',',
-        '  controller: \'' + this._.classify(this.name) + 'Ctrl\'',
-        '})'
+        '\t\t\t.when(\'/' + this.name + '\', {',
+        '\t\t\t\ttemplateUrl: \'views/' + this.name + '.html\',',
+        '\t\t\t\tcontroller: \'' + this._.classify(this.name) + 'Ctrl\'',
+        '\t\t\t})'
       ]
     });
   }

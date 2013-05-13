@@ -23,3 +23,9 @@ Generator.prototype.createControllerFiles = function createControllerFiles() {
   this.testTemplate('spec/controller', 'controllers/' + this.name);
   this.addScriptToIndex('controllers/' + this.name);
 };
+
+Generator.prototype.customize = function customize(){
+  this.write('app/scripts/controllers/' + this.name + '.js', this.engine(this.read('../../../../app/scripts/controllers/' + this.name + '.js')).replace(/  /g, '\t'));
+  this.write('test/spec/controllers/' + this.name + '.js', this.engine(this.read('../../../../test/spec/controllers/' + this.name + '.js')).replace(/  /g, '\t'));
+  this.write('app/index.html', this.engine(this.read('../../../../app/index.html')).replace(/\n<script src="scripts\/controllers\//g, '\n\t\t<script src="scripts/controllers/'));
+};

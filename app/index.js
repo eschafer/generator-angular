@@ -163,3 +163,8 @@ Generator.prototype.packageFiles = function () {
   this.template('../../templates/common/package.json', 'package.json');
   this.template('../../templates/common/Gruntfile.js', 'Gruntfile.js');
 };
+
+Generator.prototype.customize = function customize(){
+  this.write('component.json', this.engine(this.read('../../../../component.json')).replace(/  /g, '\t'));
+  this.write('package.json', this.engine(this.read('../../../../package.json')).replace(/  /g, '\t'));
+};

@@ -16,3 +16,7 @@ util.inherits(Generator, ScriptBase);
 Generator.prototype.createAppFile = function createAppFile() {
   this.appTemplate('app', 'scripts/app');
 };
+
+Generator.prototype.customize = function customize(){
+  this.write('app/scripts/app.js', this.engine(this.read('../../../../app/scripts/app.js')).replace(/  /g, '\t'));
+};
