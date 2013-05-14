@@ -1,10 +1,10 @@
-'use strict';
+"use strict";
 
-angular.module('<%= _.camelize(appname) %>App')
-	.provider('<%= _.camelize(name) %>', function () {
+angular.module("<%= _.camelize(appname) %>App")
+	.provider("<%= _.camelize(name) %>", function () {
 
 		// Private variables
-		var salutation = 'Hello';
+		var salutation = "Hello";
 
 		// Private constructor
 		function Greeter() {
